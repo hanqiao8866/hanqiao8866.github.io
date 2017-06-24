@@ -1,26 +1,187 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[寒桥]]></title>
-  <subtitle><![CDATA[iOS工程师、前端工程师]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://hanqiao8866.github.io/"/>
-  <updated>2017-06-24T19:19:58.000Z</updated>
-  <id>http://hanqiao8866.github.io/</id>
-  
-  <author>
-    <name><![CDATA[谢涛]]></name>
-    <email><![CDATA[hanqiao6666@163.com]]></email>
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="http://hanqiao8866.github.io/2017/06/25/Swift%20Tour%20Learn%20(%E4%B8%80)%20--%20Swift%20%E8%AF%AD%E6%B3%95%EF%BC%88%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%89/"/>
-    <id>http://hanqiao8866.github.io/2017/06/25/Swift Tour Learn (一) -- Swift 语法（语法基础）/</id>
-    <published>2017-06-24T19:17:06.000Z</published>
-    <updated>2017-06-24T19:19:58.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Swift语法（语法基础）"><a href="#Swift语法（语法基础）" class="headerlink" title="Swift语法（语法基础）"></a>Swift语法（语法基础）</h1><h4 id="本章将会介绍"><a href="#本章将会介绍" class="headerlink" title="本章将会介绍"></a>本章将会介绍</h4><blockquote>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="iOS工程师、前端工程师">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="寒桥" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        寒桥的博客
+        
+    </title>
+
+    <link rel="canonical" href="http://hanqiao8866.github.io/2017/06/25/Swift Tour Learn (一) -- Swift 语法（语法基础）/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('null')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    寒桥
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/About/">About</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Category/">Category</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 谢涛
+                        <span>
+                          日期 2017-06-25
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Swift语法（语法基础）"><a href="#Swift语法（语法基础）" class="headerlink" title="Swift语法（语法基础）"></a>Swift语法（语法基础）</h1><h4 id="本章将会介绍"><a href="#本章将会介绍" class="headerlink" title="本章将会介绍"></a>本章将会介绍</h4><blockquote>
 <p>什么是Swift<br>基础部分（The Basic）</p>
 </blockquote>
 <h4 id="什么是Swift"><a href="#什么是Swift" class="headerlink" title="什么是Swift"></a>什么是Swift</h4><p>Swift 是一种新的编程语言，用于编写 iOS，macOS，watchOS 和 tvOS 的应用程序。Swift 结合了 C 和 Objective-C 的优点并且不受 C 兼容性的限制。Swift 采用安全的编程模式并添加了很多新特性，这将使编程更简单，更灵活，也更有趣。Swift 是基于成熟而且倍受喜爱的 Cocoa 和 Cocoa Touch 框架，它的降临将重新定义软件开发。</p>
@@ -208,25 +369,232 @@
 <blockquote>
 <p>注意：<br>断言可能导致你的应用终止运行，所以你应当仔细设计你的代码来让非法条件不会出现。然而，在你的应用发布之前，有时候非法条件可能出现，这时使用断言可以快速发现问题。</p>
 </blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="Swift语法（语法基础）"><a href="#Swift语法（语法基础）" class="headerlink" title="Swift语法（语法基础）"></a>Swift语法（语法基础）</h1><h4 id="本章将会介绍"><a href="#本章将]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hexo使用总结]]></title>
-    <link href="http://hanqiao8866.github.io/2017/06/25/Hexo%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-    <id>http://hanqiao8866.github.io/2017/06/25/Hexo使用总结/</id>
-    <published>2017-06-24T16:44:54.000Z</published>
-    <updated>2017-06-24T18:56:26.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d"><a href="#hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d" class="headerlink" title="hexo clean &amp;&amp; hexo g &amp;&amp; hexo d"></a>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</h4><h4 id="hexo-s"><a href="#hexo-s" class="headerlink" title="hexo s"></a>hexo s</h4><p>// 清理缓存<br>hexo clean<br>// 生成文件<br>hexo generate<br>// 部署(到远程Github上)<br>hexo deploy<br>// 部署(到本地)<br>hexo server</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d"><a href="#hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d" class="headerlink" title="hexo clean &]]>
-    </summary>
-    
-  </entry>
-  
-</feed>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/06/25/Hexo使用总结/" data-toggle="tooltip" data-placement="top"
+                           title="Hexo使用总结">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift语法（语法基础）"><span class="toc-text">Swift语法（语法基础）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#本章将会介绍"><span class="toc-text">本章将会介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是Swift"><span class="toc-text">什么是Swift</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基础部分（The-Basic）"><span class="toc-text">基础部分（The Basic）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-常量和变量"><span class="toc-text">1.常量和变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-类型标注（type-annotation）"><span class="toc-text">2.类型标注（type annotation）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-常量和变量的命名"><span class="toc-text">3.常量和变量的命名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-输出常量和变量"><span class="toc-text">4.输出常量和变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-注释"><span class="toc-text">5.注释</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-分号"><span class="toc-text">6.分号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-整数"><span class="toc-text">7.整数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-浮点数"><span class="toc-text">8.浮点数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-类型安全（type-safe）和类型推断（type-checks）"><span class="toc-text">9.类型安全（type safe）和类型推断（type checks）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10-数值型字面量"><span class="toc-text">10.数值型字面量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11-整数转化"><span class="toc-text">11.整数转化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12-整数和浮点数的转换"><span class="toc-text">12.整数和浮点数的转换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#13-类型别名（type-aliases）"><span class="toc-text">13.类型别名（type aliases）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#14-布尔值（Bool）"><span class="toc-text">14.布尔值（Bool）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#15-元组（tuples）"><span class="toc-text">15.元组（tuples）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#16-可选类型（Optionals）"><span class="toc-text">16.可选类型（Optionals）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#17-nil"><span class="toc-text">17.nil</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#18-if语句以及强制解析"><span class="toc-text">18.if语句以及强制解析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#19-可选绑定（optional-binding）"><span class="toc-text">19.可选绑定（optional binding）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#20-隐式解析可选类型（implicitly-unwrapped-optionals）"><span class="toc-text">20.隐式解析可选类型（implicitly unwrapped optionals）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#21-错误处理（error-handling）"><span class="toc-text">21.错误处理（error handling）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#22-断言（assertion）"><span class="toc-text">22.断言（assertion）</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="http://www.jianshu.com/u/ee0520f2d909">我的简书</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 寒桥 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://hanqiao8866.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','undefined','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://upload.jianshu.io/users/upload_avatars/143920/c55a48a925fd.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+</body>
+
+</html>
