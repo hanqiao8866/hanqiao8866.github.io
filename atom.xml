@@ -34,7 +34,7 @@
     <link href="http://hanqiao8866.github.io/2017/06/25/Hexo%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
     <id>http://hanqiao8866.github.io/2017/06/25/Hexo使用总结/</id>
     <published>2017-06-24T16:44:54.000Z</published>
-    <updated>2017-06-24T19:43:03.000Z</updated>
+    <updated>2017-06-24T19:45:45.000Z</updated>
     <content type="html"><![CDATA[<h4 id="创建GitHub上代码仓库"><a href="#创建GitHub上代码仓库" class="headerlink" title="创建GitHub上代码仓库"></a>创建GitHub上代码仓库</h4><p><img src="http://upload-images.jianshu.io/upload_images/291600-7cec7b9f28359ea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>在仓库名字输入框中输入：Github昵称.github.io</p>
 <h4 id="生成添加秘钥"><a href="#生成添加秘钥" class="headerlink" title="生成添加秘钥"></a>生成添加秘钥</h4><p>在终端（Terminal）输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</div></pre></td></tr></table></figure>
@@ -66,6 +66,8 @@
     <![CDATA[<h4 id="创建GitHub上代码仓库"><a href="#创建GitHub上代码仓库" class="headerlink" title="创建GitHub上代码仓库"></a>创建GitHub上代码仓库</h4><p><img src="http://upload-im]]>
     </summary>
     
+      <category term="hexo使用" scheme="http://hanqiao8866.github.io/tags/hexo%E4%BD%BF%E7%94%A8/"/>
+    
   </entry>
   
   <entry>
@@ -73,7 +75,7 @@
     <link href="http://hanqiao8866.github.io/2017/06/25/Swift%20Tour%20Learn%20(%E4%B8%80)%20--%20Swift%20%E8%AF%AD%E6%B3%95%EF%BC%88%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%89/"/>
     <id>http://hanqiao8866.github.io/2017/06/25/Swift Tour Learn (一) -- Swift 语法（语法基础）/</id>
     <published>2017-06-24T16:44:54.000Z</published>
-    <updated>2017-06-24T19:21:33.000Z</updated>
+    <updated>2017-06-24T19:45:54.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Swift语法（语法基础）"><a href="#Swift语法（语法基础）" class="headerlink" title="Swift语法（语法基础）"></a>Swift语法（语法基础）</h1><h4 id="本章将会介绍"><a href="#本章将会介绍" class="headerlink" title="本章将会介绍"></a>本章将会介绍</h4><blockquote>
 <p>什么是Swift<br>基础部分（The Basic）</p>
 </blockquote>
@@ -266,6 +268,8 @@
     <summary type="html">
     <![CDATA[<h1 id="Swift语法（语法基础）"><a href="#Swift语法（语法基础）" class="headerlink" title="Swift语法（语法基础）"></a>Swift语法（语法基础）</h1><h4 id="本章将会介绍"><a href="#本章将]]>
     </summary>
+    
+      <category term="swift" scheme="http://hanqiao8866.github.io/tags/swift/"/>
     
   </entry>
   
