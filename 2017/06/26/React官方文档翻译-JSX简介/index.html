@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Hexo使用总结｜寒桥的博客
+        React官方文档翻译 - JSX简介｜寒桥的博客
         
     </title>
 
-    <link rel="canonical" href="http://hanqiao8866.github.io/2017/06/25/Hexo使用总结/">
+    <link rel="canonical" href="http://hanqiao8866.github.io/2017/06/26/React官方文档翻译-JSX简介/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -153,18 +153,15 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Hexo使用总结</h1>
+                    <h1>React官方文档翻译 - JSX简介</h1>
                     
                     <span class="meta">
                          作者 谢涛
                         <span>
-                          日期 2017-06-25
+                          日期 2017-06-26
                          </span>
                     </span>
                     <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#hexo使用"
-                           title="hexo使用">hexo使用</a>
                         
                     </div>
                 </div>
@@ -173,7 +170,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Hexo使用总结
+            React官方文档翻译 - JSX简介
         </span>
     </div>
 </header>
@@ -184,47 +181,59 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h4 id="创建GitHub上代码仓库"><a href="#创建GitHub上代码仓库" class="headerlink" title="创建GitHub上代码仓库"></a>创建GitHub上代码仓库</h4><p><img src="http://upload-images.jianshu.io/upload_images/291600-7cec7b9f28359ea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>在仓库名字输入框中输入：Github昵称.github.io</p>
-<h4 id="生成添加秘钥"><a href="#生成添加秘钥" class="headerlink" title="生成添加秘钥"></a>生成添加秘钥</h4><p>在终端（Terminal）输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</div></pre></td></tr></table></figure>
-<h4 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h4><h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><h4 id="安装配置hexo"><a href="#安装配置hexo" class="headerlink" title="安装配置hexo"></a>安装配置hexo</h4><ul>
-<li>定位博客本地路径</li>
-<li>下载安装hexo</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
-<ul>
-<li>安装好hexo以后，在终端输入：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo</div></pre></td></tr></table></figure>
-<ul>
-<li>初始化博客</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 建立一个博客文件夹，并初始化博客，&lt;folder&gt;为文件夹的名称，可以随便起名字</div><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">// 进入博客文件夹，&lt;folder&gt;为文件夹的名称</div><div class="line">$ cd &lt;folder&gt;</div><div class="line">// node.js的命令，根据博客既定的dependencies配置安装所有的依赖包</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
-<h4 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: https://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"></div><div class="line"># Site</div><div class="line">title: # The title of your website</div><div class="line">subtitle: # The subtitle of your website</div><div class="line">description: # The description of your website</div><div class="line">author: # Your name</div><div class="line">language: # The language of your website</div><div class="line">timezone: </div><div class="line"></div><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://yoursite.com/child</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div><div class="line"></div><div class="line"># Directory</div><div class="line">source_dir: source</div><div class="line">public_dir: public</div><div class="line">tag_dir: tags</div><div class="line">archive_dir: archives</div><div class="line">category_dir: categories</div><div class="line">code_dir: downloads/code</div><div class="line">i18n_dir: :lang</div><div class="line">skip_render:</div><div class="line"></div><div class="line"># Writing</div><div class="line">new_post_name: :title.md # File name of new posts</div><div class="line">default_layout: post</div><div class="line">titlecase: false # Transform title into titlecase</div><div class="line">external_link: true # Open external links in new tab</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">future: true</div><div class="line">highlight:</div><div class="line">  enable: true</div><div class="line">  line_number: true</div><div class="line">  auto_detect: false</div><div class="line">  tab_replace:</div><div class="line"></div><div class="line"># Category &amp; Tag</div><div class="line">default_category: uncategorized</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># Date / Time format</div><div class="line">## Hexo uses Moment.js to parse and display date</div><div class="line">## You can customize the date format as defined in</div><div class="line">## http://momentjs.com/docs/#/displaying/format/</div><div class="line">date_format: YYYY-MM-DD</div><div class="line">time_format: HH:mm:ss</div><div class="line"></div><div class="line"># Pagination</div><div class="line">## Set per_page to 0 to disable pagination</div><div class="line">per_page: 10</div><div class="line">pagination_dir: page</div><div class="line"></div><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: landscape</div><div class="line"></div><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type:</div></pre></td></tr></table></figure>
-<h4 id="部属配置"><a href="#部属配置" class="headerlink" title="部属配置"></a>部属配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/hanqiao8866/hanqiao8866.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<h4 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h4><p>hexo new “文章标题”</p>
-<h4 id="执行更新"><a href="#执行更新" class="headerlink" title="执行更新"></a>执行更新</h4><p>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br>hexo s</p>
-<p>// 清理缓存<br>hexo clean<br>// 生成文件<br>hexo generate<br>// 部署(到远程Github上)<br>hexo deploy<br>// 部署(到本地)<br>hexo server</p>
-<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><ul>
-<li>Deployer not found: git<br>在终端执行命令：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>然后继续执行hexo deploye指令进行部署。</p>
+                <h4 id="JSX简介"><a href="#JSX简介" class="headerlink" title="JSX简介"></a>JSX简介</h4><p>下面是一个变量声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;</div></pre></td></tr></table></figure>
+<p>这个标记语法（tag syntax）既不是字符串也不是HTML。</p>
+<p>这种语法叫做<code>JSX</code>，它是JavaScript的一个语法扩展。我们建议在React中使用这种语法来描述UI。JSX看起来像是一种模板语言，但它有JavaScript的所有功能。</p>
+<p>JSX提供React的“元素”。我们将在下一章节中探讨在DOM中的渲染。下边将会介绍一些JSX的基本用法。</p>
+<p><strong>在JSX中嵌入表达式</strong></p>
+<p>你可以在JSX中嵌入任何JavaScript表达式，将代码包裹在大括号中。</p>
+<p>比如<code>2 + 2</code>,<code>user.firstName</code>,<code>formatName(user)</code>都是有效的表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function formatName(user) &#123;</div><div class="line">  return user.firstName + &apos; &apos; + user.lastName;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const user = &#123;</div><div class="line">  firstName: &apos;Harper&apos;,</div><div class="line">  lastName: &apos;Perez&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">const element = (</div><div class="line">  &lt;h1&gt;</div><div class="line">    Hello, &#123;formatName(user)&#125;!</div><div class="line">  &lt;/h1&gt;</div><div class="line">);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  element,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/gaearon/pen/PGEjdG?editors=0010" target="_blank" rel="external">在CodePen中试一下</a></p>
+<p>为了读起来方便，我们将JSX分到多行中，尽管这不是必须的，但是当这样做时，我们还建议包裹在括号中来避免<a href="http://stackoverflow.com/q/2846283" target="_blank" rel="external">自动分号automatic semicolon insertion</a>的陷阱。</p>
+<p><strong>JSX也是一个表达式</strong></p>
+<p>编译后，JSX表达式成为常规的JavaScript对象。这就意味着你可以在if语句，for循环中使用JSX，将JSX赋给变量，作为参数接收，从函数中返回等：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function getGreeting(user) &#123;</div><div class="line">  if (user) &#123;</div><div class="line">    return &lt;h1&gt;Hello, &#123;formatName(user)&#125;!&lt;/h1&gt;;</div><div class="line">  &#125;</div><div class="line">  return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>JSX指定属性</strong></p>
+<p>你可以在指定字符串中使用引号作为属性值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;div tabIndex=&quot;0&quot;&gt;&lt;/div&gt;;</div></pre></td></tr></table></figure>
+<p>你也可以用花括号将JavaScript表达式嵌到一个属性中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt;;</div></pre></td></tr></table></figure>
+<p>当你在嵌入嵌入JavaScript表达式的时候记得使用花括号，不能使用引号，不然的话JSX会将其当做字符串来处理。</p>
+<p><strong>Specifying Children with JSX</strong></p>
+<p>如果标签是空的，可以像XML那样用<code>/&gt;</code>来关闭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;img src=&#123;user.avatarUrl&#125; /&gt;;</div></pre></td></tr></table></figure>
+<p>JSX标签也可以包含子元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const element = (</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;h1&gt;Hello!&lt;/h1&gt;</div><div class="line">    &lt;h2&gt;Good to see you here.&lt;/h2&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>因为JSX的语法和HTML的语法很想。React DOM属性使用小驼峰命名。比如在JSX中<code>class</code>变成<code>className</code>，<code>tabindex</code>变成<code>tabIndex</code></p>
+</blockquote>
+<p><strong>JSX可以防止注入攻击</strong></p>
+<p>JSX中嵌入用户输入是安全的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const title = response.potentiallyMaliciousInput;</div><div class="line">// This is safe:</div><div class="line">const element = &lt;h1&gt;&#123;title&#125;&lt;/h1&gt;;</div></pre></td></tr></table></figure>
+<p>默认情况下，React DOM escapes any values embedded in JSX before rendering them. 因此在你的应用中不能注入任何东西。所有的都在渲染之前转换成了字符串。这个可以防止你受到<a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">XSS (cross-site-scripting) 攻击</a>。</p>
+<p><strong>JSX Represents Objects</strong></p>
+<p>Babel编译JSX，调用React.createElement()方法，下边这两个例子是一样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const element = (</div><div class="line">  &lt;h1 className=&quot;greeting&quot;&gt;</div><div class="line">    Hello, world!</div><div class="line">  &lt;/h1&gt;</div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const element = React.createElement(</div><div class="line">  &apos;h1&apos;,</div><div class="line">  &#123;className: &apos;greeting&apos;&#125;,</div><div class="line">  &apos;Hello, world!&apos;</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>React.createElement()执行检查使得你的代码没有错误，实质上它创建了一个像这样的对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// Note: this structure is simplified</div><div class="line">const element = &#123;</div><div class="line">  type: &apos;h1&apos;,</div><div class="line">  props: &#123;</div><div class="line">    className: &apos;greeting&apos;,</div><div class="line">    children: &apos;Hello, world&apos;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这些对象被称为“React元素”。你可以认为他们是你想在屏幕中看到的东西的描述。React读取这些对象，使用他们构造DOM并保持更新。</p>
+<p>我们酱紫啊下一章节中探讨将React元素渲染到DOM中</p>
+<blockquote>
+<p>提示：<br>我们建议使用支持Babel语法的编辑器，这样ES6和JSX代码都可以高亮显示。</p>
+</blockquote>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/06/26/React官方文档翻译-安装/" data-toggle="tooltip" data-placement="top"
-                           title="React官方文档翻译 - 安装">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/06/25/Swift Tour Learn (一) -- Swift 语法（语法基础）/" data-toggle="tooltip" data-placement="top"
-                           title="Swift语法（语法基础）">Next Post &rarr;</a>
+                        <a href="/2017/06/26/React官方文档翻译-Hello-World/" data-toggle="tooltip" data-placement="top"
+                           title="React官方文档翻译 - Hello World">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -240,7 +249,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建GitHub上代码仓库"><span class="toc-text">创建GitHub上代码仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成添加秘钥"><span class="toc-text">生成添加秘钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装node-js"><span class="toc-text">安装node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装git"><span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装配置hexo"><span class="toc-text">安装配置hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置博客"><span class="toc-text">配置博客</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部属配置"><span class="toc-text">部属配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新建一篇文章"><span class="toc-text">新建一篇文章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#执行更新"><span class="toc-text">执行更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#错误处理"><span class="toc-text">错误处理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#JSX简介"><span class="toc-text">JSX简介</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -261,9 +270,6 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
-                        
-                        <a class="tag" href="/tags/#hexo使用"
-                           title="hexo使用">hexo使用</a>
                         
                     </div>
                 </section>

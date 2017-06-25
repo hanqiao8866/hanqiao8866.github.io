@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Hello｜寒桥的博客
+        React官方文档翻译 - Hello World｜寒桥的博客
         
     </title>
 
-    <link rel="canonical" href="http://hanqiao8866.github.io/2017/06/25/Hello/">
+    <link rel="canonical" href="http://hanqiao8866.github.io/2017/06/26/React官方文档翻译-Hello-World/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -153,18 +153,15 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Hello</h1>
+                    <h1>React官方文档翻译 - Hello World</h1>
                     
                     <span class="meta">
                          作者 谢涛
                         <span>
-                          日期 2017-06-25
+                          日期 2017-06-26
                          </span>
                     </span>
                     <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#swift"
-                           title="swift">swift</a>
                         
                     </div>
                 </div>
@@ -173,7 +170,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Hello
+            React官方文档翻译 - Hello World
         </span>
     </div>
 </header>
@@ -184,16 +181,29 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <h4 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h4><p>最简单的开始使用React是在CodePen中使用<a href="http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010" target="_blank" rel="external">Hello World示例代码</a>。你不需要安装任何东西，只需要打开连接进入一个面板中想示例代码中写的那样改写就行。如果你更愿意使用本地开发环境进行编写，可以查看一下<a href="http://javacheng.oschina.io/react/docs/installation.html" target="_blank" rel="external">安装</a>章节的介绍。</p>
+<p>最简单的React代码就像这样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  &lt;h1&gt;Hello, world!&lt;/h1&gt;,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>这句代码在浏览器中渲染出“Hello World”。</p>
+<p>接下来的章节中将逐渐为你介绍如何使用React。我们将会在React应用中尝试构建代码块，元素和组件。一旦你掌握了它们，你可以用小的可重用的组件创作出更将复杂的应用。</p>
+<p><strong>JavaScript指南</strong></p>
+<p>React是一个JavaScript库，我们假设你已经理解JavaScript语言。如果你觉得掌握还不是很牢靠，我们建议你看一下<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript" target="_blank" rel="external">梳理JavaScript知识点</a>的教程。</p>
+<p>我们在示例中也会用到一些ES6的语法。我们会尽量少用，毕竟它还是很新的语法，但我们仍然鼓励你熟悉<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">箭头函数</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external">类</a>、<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="external">模板字面量</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="external">let</a>和<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const" target="_blank" rel="external">const</a>语句。你可以使用<a href="http://babeljs.io/repl/#?babili=false&amp;evaluate=true&amp;lineWrap=false&amp;presets=es2015%2Creact&amp;experimental=false&amp;loose=false&amp;spec=false&amp;code=const%20element%20%3D%20%3Ch1%3EHello%2C%20world!%3C%2Fh1%3E%3B%0Aconst%20container%20%3D%20document.getElementById(%27root%27" target="_blank" rel="external">Bable REPL</a>%3B%0AReactDOM.render(element%2C%20container)%3B%0A)去检查ES6代码的编译。</p>
+
                 <hr>
                 
 
                 <ul class="pager">
                     
+                    <li class="previous">
+                        <a href="/2017/06/26/React官方文档翻译-JSX简介/" data-toggle="tooltip" data-placement="top"
+                           title="React官方文档翻译 - JSX简介">&larr; Previous Post</a>
+                    </li>
+                    
                     
                     <li class="next">
-                        <a href="/2017/06/25/Hexo使用总结/" data-toggle="tooltip" data-placement="top"
-                           title="Hexo使用总结">Next Post &rarr;</a>
+                        <a href="/2017/06/26/React官方文档翻译-安装/" data-toggle="tooltip" data-placement="top"
+                           title="React官方文档翻译 - 安装">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -209,7 +219,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hello-World"><span class="toc-text">Hello World</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -230,9 +240,6 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
-                        
-                        <a class="tag" href="/tags/#swift"
-                           title="swift">swift</a>
                         
                     </div>
                 </section>
