@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        React官方文档翻译 - 安装｜寒桥的博客
+        React官方文档翻译（四） - 渲染元素｜寒桥的博客
         
     </title>
 
-    <link rel="canonical" href="http://hanqiao8866.github.io/2017/06/26/React官方文档翻译-安装/">
+    <link rel="canonical" href="http://hanqiao8866.github.io/2017/06/27/React官方文档翻译（四）-渲染元素/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -153,12 +153,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>React官方文档翻译 - 安装</h1>
+                    <h1>React官方文档翻译（四） - 渲染元素</h1>
                     
                     <span class="meta">
                          作者 谢涛
                         <span>
-                          日期 2017-06-26
+                          日期 2017-06-27
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -170,7 +170,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            React官方文档翻译 - 安装
+            React官方文档翻译（四） - 渲染元素
         </span>
     </div>
 </header>
@@ -181,52 +181,31 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>React使用起来很灵活并且可以用在各种项目中。你可以用React创建一个新的应用，你也可以将它引入到一个已经存在的项目中并且不用改写之前的代码库</p>
-<ul>
-<li>尝试React</li>
-</ul>
-<p>如果你只是对React感兴趣想简单的使用的话，可以使用CodePen.你不需要安装任何东西，只需要在CodePen中修改代码看看它是否得到你要的结果。</p>
-<p>如果你更喜欢使用自己的文本编辑器，你可以下载<br><a href="http://javacheng.oschina.io/react/downloads/single-file-example.html" target="_blank" rel="external">download this HTML file</a>,然后编辑它，在本地浏览器中进行查看。它需要在运行时进行代码转换，因此不要在生产环境中使用。</p>
-<p>如果你想在一个完整的项目中使用它，有两种方式可以开始你的React之旅：创建一个新应用，添加React到已有的项目中。</p>
-<ul>
-<li>创建新应用</li>
-</ul>
-<p>创建新的应用是开始构建一个新的程序最好的方式，它为你创建了开发环境，以便你可以使用最新的JavaScript特性，提供一个良好的开发体验，同时可以优化(optimizes)你生产环境下的应用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install -g create-react-app</div><div class="line">create-react-app my-app</div><div class="line"></div><div class="line">cd my-app</div><div class="line">npm start</div></pre></td></tr></table></figure>
-<p>创建的新应用不处理后端逻辑(backend logic)和数据库，只是提供一种创建前端的方式，因此不影响你使用的后台。React使用Babel这样的构建工具，在hood下webpack，但没有任何配置。</p>
-<p>当你准备部署（deploy）到生产环境的时候，运行<code>npm run build</code>将在<code>build</code>文件夹下构建一个优化的项目。你也可以在<a href="https://github.com/facebookincubator/create-react-app#create-react-app-" target="_blank" rel="external">from its ReadMe</a>和<a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents" target="_blank" rel="external">User Guide</a>下学到更多创建新的React的知识。</p>
-<ul>
-<li>添加React到已有项目中</li>
-</ul>
-<p>当你开始使用React的时候你并不需要重写你的项目。</p>
-<p>我们建议你增加React到你应用程序作为其中的一小部分，比如一个小部件，你可以通过用例看是否执行。</p>
-<p>然而React可以在没有构建管道（build pipeline）的情况下<a href="http://javacheng.oschina.io/react/docs/react-without-es6.html" target="_blank" rel="external">使用</a>，我们建议你进行相关的设置这样会使得你更高效。一个现代的构建管道方式一般包含以下几个部分：</p>
-<p>（1）一个包管理器，如<a href="https://yarnpkg.com/" target="_blank" rel="external">Yarn</a>或者<a href="https://www.npmjs.com/" target="_blank" rel="external">npm</a>。它允许你利用第三方包管理巨大的生态系统，更方便的安装和更新它们</p>
-<p>（2）一个bundler，如<a href="https://webpack.js.org/" target="_blank" rel="external">webpack</a>或者<a href="http://browserify.org/" target="_blank" rel="external">Browserify</a>。它允许你编写模块代码并打包到更小的包中，从而优化加载时间。</p>
-<p>（3）一个<a href="http://babeljs.io/" target="_blank" rel="external">Babel</a>编译器。它允许你在就得浏览器中编写更现代化的JavaScript代码。</p>
-<p><strong>安装React</strong><br>我们建议使用Yarn或者npm来管理前端使用到的各种依赖。如果之前没有使用过包管理，可以从<a href="https://yarnpkg.com/en/docs/getting-started" target="_blank" rel="external">Yarn文档</a>开始。</p>
-<p>使用Yarn安装React：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yarn init</div><div class="line">yarn add react react-dom</div></pre></td></tr></table></figure>
-<p>使用npm安装React</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm init</div><div class="line">npm install --save react react-dom</div></pre></td></tr></table></figure>
-<p>Yarn和npm都从<a href="http://npmjs.com/" target="_blank" rel="external">npm registry</a>下载包。</p>
-<p><strong>启用ES6和JSX</strong></p>
-<p>我们建议使用webpack或者Browserify来打包，这样的话你可以使用模块代码打包到更小的包中，优化加载时间</p>
-<p>最小对的React例子就像这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import ReactDOM from &apos;react-dom&apos;;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;h1&gt;Hello, world!&lt;/h1&gt;,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>这段代码显示到DOM元素中，使用id为root，所以你早在你的HTML文件中使用<code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code>。</p>
-<p>类似的，你可以在你已存在的项目中DOM元素中渲染一个用其他JavaScript的UI库的React组件。</p>
-<p><strong>开发环境版本和生产环境版本</strong></p>
-<p>默认情况下，React包含很多有用的警告。这些警告在开发环境版本中非常有用。但是，这些警告会使得React体积变大，运行速度降低，因此当你在部署应用程序的时候要使用生产环境版本。</p>
-<p>（1）Brunch<br>使用<code>Brunch</code>创建一个优化的生产环境版本，只需要在构建命令中使用<code>-p</code>标签。可以查看<a href="http://brunch.io/docs/commands" target="_blank" rel="external">Brunch文档</a>查看更多详细信息。</p>
-<p>（2）Browserify<br>使用环境变量<code>NODE_ENV</code>设置生产环境版本来运行Browserify，构建代码最后一步使用<a href="https://github.com/mishoo/UglifyJS" target="_blank" rel="external">UglifyJS</a>来剥离开发环境下的代码。</p>
-<p>（3）Rollup<br>使用<a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="external">rollup-plugin-replace</a>和<a href="https://github.com/rollup/rollup-plugin-commonjs" target="_blank" rel="external">rollup-plugin-commonjs</a>来移除开发环境版本中的代码。完整的设置代码可以查看<a href="https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0" target="_blank" rel="external">See this gist</a>。</p>
-<p>（4）Webpack<br>在Webpack配置将<code>DefinePlugin</code>和<code>UglifyJsPlugin</code>配置到生产环境版本中，具体文档可以查看<a href="https://webpack.js.org/guides/production-build/" target="_blank" rel="external">Webpack Guider</a></p>
-<p><strong>使用CDN</strong><br>如果你不想使用npm来管理客户端包，在<code>dist</code>文件夹中的<code>react</code>和<code>react-dom</code>npm包也提供了相应的单文件发布，这个是托管在CDN上的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;https://unpkg.com/react@15/dist/react.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;https://unpkg.com/react-dom@15/dist/react-dom.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>上面的版本只适用于开发环境版本，不适用于生产环境版本。简化和优化React的生产环境版本可以使用下边的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;https://unpkg.com/react@15/dist/react.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;https://unpkg.com/react-dom@15/dist/react-dom.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>加载一个特定版本的<code>react</code>和<code>react-dom</code>取代15版本号。如果你使用<code>Bower</code>，React可以通过<code>react</code>包来提供。</p>
+                <h4 id="渲染元素（Rendering-Elements）"><a href="#渲染元素（Rendering-Elements）" class="headerlink" title="渲染元素（Rendering Elements）"></a>渲染元素（Rendering Elements）</h4><p>元素是React应用中最小的构建块<br>一个元素用于描述你将在屏幕中看到的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</div></pre></td></tr></table></figure>
+<p>不同于浏览器的 DOM 元素， React 元素是普通的对象，非常容易创建。React DOM 会负责更新 DOM ，以匹配React元素（注：DOM元素与React元素保持一致）。</p>
+<blockquote>
+<p>注意：组件是由元素构成的</p>
+</blockquote>
+<p><strong>在DOM中渲染一个元素</strong><br>假如在HTML代码中有一个<div>标签</div></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>我们称这个是一个 “根” DOM 节点，因为该节点内的所有内容都由 React DOM 管理。</p>
+<p>单纯用 React 构建的应用程序通常只有一个单独的 根 DOM 节点。但如果你要把 React 整合(integrating)进现有的app中 ，那你可能会有多个相互独立(isolated)的根DOM节点。</p>
+<p>要渲染一个 React 元素到一个 根 DOM 节点，把它们传递给 ReactDOM.render() 方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</div><div class="line">ReactDOM.render(</div><div class="line">  element,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>在页面上将会显示“Hello World”</p>
+<p><strong>更新已渲染的元素</strong><br>React元素是 不可变（immutable） 的. 一旦你创建了一个元素, 就不能再修改其子元素或任何属性。一个元素就像电影里的一帧: 它表示在某一特定时间点的 UI 。</p>
+<p>就我们所知, 更新 UI 的唯一方法是创建一个新的元素, 并将其传入ReactDOM.render()方法.</p>
+<p>思考一下时钟例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function tick() &#123;</div><div class="line">  const element = (</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;h1&gt;Hello, world!&lt;/h1&gt;</div><div class="line">      &lt;h2&gt;It is &#123;new Date().toLocaleTimeString()&#125;.&lt;/h2&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">  ReactDOM.render(</div><div class="line">    element,</div><div class="line">    document.getElementById(&apos;root&apos;)</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">setInterval(tick, 1000);</div></pre></td></tr></table></figure>
+<p>以上代码每隔 1 秒, 就会通过 setInterval() 回调 ReactDOM.render() 方法来重新渲染元素。</p>
+<blockquote>
+<p>注意：<br>实际上，大多数 React 应用只会调用 ReactDOM.render() 一次。在接下来的章节中，我们将学习如何将这些代码封装到<a href="https://facebook.github.io/react/docs/state-and-lifecycle.html" target="_blank" rel="external">有状态的组件中</a>。</p>
+</blockquote>
+<p><strong>React只更新需要更新的部分</strong><br>React DOM 会将元素及其子元素与之前版本逐一对比, 并只对有必要更新的 DOM 进行更新, 以达到 DOM 所需的状态。</p>
+<p>你可以用浏览器工具对 上一个例子 进行检查来验证这一点:<img src="http://www.css88.com/react/img/docs/granular-dom-updates.gif" alt=""></p>
+<p>即使我们我们每隔 1 秒都重建了整个UI树, 但实际上 React DOM 只更新了修改过的文本节点.</p>
+<p>在我们的经验中, 关注每个时间点UI的表现, 而不是关注随着时间不断更新UI的状态, 可以减少(eliminates)很多奇怪的 bug 。</p>
 
                 <hr>
                 
@@ -234,14 +213,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/06/26/React官方文档翻译-Hello-World/" data-toggle="tooltip" data-placement="top"
-                           title="React官方文档翻译 - Hello World">&larr; Previous Post</a>
+                        <a href="/2017/06/27/React官方文档翻译（五）-组件和属性/" data-toggle="tooltip" data-placement="top"
+                           title="React官方文档翻译（五） - 组件和属性">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/06/25/Hexo使用总结/" data-toggle="tooltip" data-placement="top"
-                           title="Hexo使用总结">Next Post &rarr;</a>
+                        <a href="/2017/06/26/React官方文档翻译（三）-JSX简介/" data-toggle="tooltip" data-placement="top"
+                           title="React官方文档翻译（三） - JSX简介">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -257,7 +236,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#渲染元素（Rendering-Elements）"><span class="toc-text">渲染元素（Rendering Elements）</span></a></li></ol>
                 </div>
             </div>
         </div>

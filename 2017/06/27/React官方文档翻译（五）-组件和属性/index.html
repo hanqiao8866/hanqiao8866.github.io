@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="iOS工程师、前端工程师">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="寒桥" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        React官方文档翻译（五） - 组件和属性｜寒桥的博客
+        
+    </title>
+
+    <link rel="canonical" href="http://hanqiao8866.github.io/2017/06/27/React官方文档翻译（五）-组件和属性/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('null')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    寒桥
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/About/">About</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Category/">Category</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>React官方文档翻译（五） - 组件和属性</h1>
+                    
+                    <span class="meta">
+                         作者 谢涛
+                        <span>
+                          日期 2017-06-27
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            React官方文档翻译（五） - 组件和属性
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h4 id="组件（Components）和属性（Props）"><a href="#组件（Components）和属性（Props）" class="headerlink" title="组件（Components）和属性（Props）"></a>组件（Components）和属性（Props）</h4><p>组件使你可以将 UI 划分为一个一个独立，可复用的小部件，并可以对每个部件进行单独的(isolation)设计。</p>
+<p>从定义上来说， 组件就像JavaScript的函数。组件可以接收任意(arbitrary)输入(称为”props”)， 并返回 React 元素，用以描述屏幕显示内容。</p>
+<p><strong>函数式组件和类组件</strong><br>最简单的定义组件的方法是写一个 JavaScript 函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Welcome(props) &#123;</div><div class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个函数是一个合法的 React 组件，因为它接收一个 props 参数, 并返回一个 React 元素。 我们把此类组件称为”函数式(Functional)”组件， 因为从字面上看来它就是一个 JavaScript 函数。</p>
+<p>你也可以用一个 ES6 的 class 来定义一个组件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Welcome extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面两个组件从 React 的角度来看是等效的。</p>
+<p>类组件有一些额外的特性，我们将在下一节讨论。在此之前, 我们先用函数式组件，因为它们更加简洁。</p>
+<p><strong>渲染一个组件</strong></p>
+<p>之前, 我们只遇到（encountered）代表 DOM 标签的 React 元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;div /&gt;;</div></pre></td></tr></table></figure>
+<p>然而，元素也可以使用自定义的组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</div></pre></td></tr></table></figure>
+<p>当 React 在自定义组件时，它将 JSX 属性以一个单独对象的形式传递给相应的组件。 我们将其称为 “props” 对象。</p>
+<p>比如, 以下代码在页面上渲染 “Hello, Sara” ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Welcome(props) &#123;</div><div class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</div><div class="line">ReactDOM.render(</div><div class="line">  element,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>我们简要（recap）重述一下上边的例子：</p>
+<ul>
+<li>我们调用了 ReactDOM.render() 方法并向其中传入了 <welcome name="Sara"> 元素。</welcome></li>
+<li>React 调用 Welcome 组件，并向其中传入了 {name: ‘Sara’} 作为 props 对象。</li>
+<li>Welcome 组件返回 <code>&lt;h1&gt;Hello, Sara&lt;/h1&gt;</code>。</li>
+<li>React DOM 迅速更新 DOM ，使其显示为 <code>&lt;h1&gt;Hello, Sara&lt;/h1&gt;</code>。</li>
+</ul>
+<blockquote>
+<p>警告：（Caveat）<br> 组件名称总是以大写字母开始。举例来说, <code>&lt;div /&gt;</code> 代表一个 DOM 标签，而 <code>&lt;Welcome /&gt;</code> 则代表一个组件。</p>
+</blockquote>
+<p><strong>构成组件</strong><br>组件可以在它们的输出中引用其它组件。这使得我们可以使用同样的组件来抽象到任意层级。一个按钮，一个表单，一个对话框，一个屏幕：在 React 应用中，所有这些都通常描述为组件。</p>
+<p>例如，我们可以创建一个 App 组件，并在其内部多次渲染 Welcome：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function Welcome(props) &#123;</div><div class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function App() &#123;</div><div class="line">  return (</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;Welcome name=&quot;Sara&quot; /&gt;</div><div class="line">      &lt;Welcome name=&quot;Cahal&quot; /&gt;</div><div class="line">      &lt;Welcome name=&quot;Edite&quot; /&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;App /&gt;,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>通常，新的 React apps 都有一个单独的顶层 App 组件。然而，如果你在已有的应用中整合 React，你可以需要由下至上地, 从类似于 Button 这样的小组件开始, 逐渐整合到视图层的顶层。</p>
+<blockquote>
+<p>注意<br> 组件必须返回一个单独的根元素。这就是为什么我们添加一个 <code>&lt;div&gt;</code>来包含所有 <code>&lt;Welcome /&gt;</code> 元素的原因。</p>
+</blockquote>
+<p><strong>提取组件（Extracting components）</strong><br>不要害怕把一个组件分为多个更小的组件。<br>举个例子，看一下这个名 Comment 的组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function Comment(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div className=&quot;Comment&quot;&gt;</div><div class="line">      &lt;div className=&quot;UserInfo&quot;&gt;</div><div class="line">        &lt;img className=&quot;Avatar&quot;</div><div class="line">          src=&#123;props.author.avatarUrl&#125;</div><div class="line">          alt=&#123;props.author.name&#125;</div><div class="line">        /&gt;</div><div class="line">        &lt;div className=&quot;UserInfo-name&quot;&gt;</div><div class="line">          &#123;props.author.name&#125;</div><div class="line">        &lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</div><div class="line">        &#123;props.text&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</div><div class="line">        &#123;formatDate(props.date)&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>它接受 author（一个对象），text（一个字符串）和 date（一个日期）作为 props，并用于在某社交网站中描述一条评论。</p>
+<p>这个组件修改起来很麻烦，因为它是被嵌套的，而且很难复用其中的某个部分。让我们从其中提取一些组件。</p>
+<p>首先，提取头像 Avatar：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Avatar(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;img className=&quot;Avatar&quot;</div><div class="line">      src=&#123;props.user.avatarUrl&#125;</div><div class="line">      alt=&#123;props.user.name&#125;</div><div class="line">    /&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Avatar 组件不用关心它在 Comment 中是如何渲染的。这就是为什么我们给它的属性 prop 一个更通用的名字: user, 而不是 author 的原因。</p>
+<p>我们建议从组件本身的角度来命名 props 而不是它被使用的上下文环境。</p>
+<p>我们可以稍微简化一下 Comment 组件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function Comment(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div className=&quot;Comment&quot;&gt;</div><div class="line">      &lt;div className=&quot;UserInfo&quot;&gt;</div><div class="line">        &lt;Avatar user=&#123;props.author&#125; /&gt;</div><div class="line">        &lt;div className=&quot;UserInfo-name&quot;&gt;</div><div class="line">          &#123;props.author.name&#125;</div><div class="line">        &lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</div><div class="line">        &#123;props.text&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</div><div class="line">        &#123;formatDate(props.date)&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来，我们提取用户信息 UserInfo 组件， 用于将 Avatar 显示在用户名旁边：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function UserInfo(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div className=&quot;UserInfo&quot;&gt;</div><div class="line">      &lt;Avatar user=&#123;props.user&#125; /&gt;</div><div class="line">      &lt;div className=&quot;UserInfo-name&quot;&gt;</div><div class="line">        &#123;props.user.name&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这使我们可以进一步简化 Comment 组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Comment(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div className=&quot;Comment&quot;&gt;</div><div class="line">      &lt;UserInfo user=&#123;props.author&#125; /&gt;</div><div class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</div><div class="line">        &#123;props.text&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</div><div class="line">        &#123;formatDate(props.date)&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>提取组件可能看起来是一个繁琐的工作，但是在大型的 Apps 中可以回报给我们的是大量的可复用组件。一个好的经验准则是如果你 UI 的一部分需要用多次 (Button，Panel，Avatar)，或者本身足够复杂(App，FeedStory，Comment)，最好的做法是使其成为可复用组件。</p>
+<p><strong>Props是只读的</strong></p>
+<p>无论你用函数或类的方法来声明组件, 它都无法修改其自身 props. 思考下列 sum (求和)函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function sum(a, b) &#123;</div><div class="line">  return a + b;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line">这种函数称为 “纯函数” ，因为它们不会试图改变它们的输入，并且对于同样的输入,始终可以得到相同的结果。</div><div class="line"></div><div class="line">反之， 以下是非纯函数， 因为它改变了自身的输入值：</div></pre></td></tr></table></figure>
+<p>function withdraw(account, amount) {<br>  account.total -= amount;<br>}<br>```<br>虽然 React 很灵活，但是它有一条严格的规则：</p>
+<p><strong>所有 React 组件都必须是纯函数，并禁止修改其自身 props 。</strong></p>
+<p>当然， 应用 UI 总是动态的，并且随时有可以改变。 所以在下一节, 我们会介绍一个新的概念 state(状态) 。state 允许 React 组件在不违反上述规则的情况下, 根据用户操作, 网络响应, 或者其他随便什么东西, 来动态地改变其输出。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/06/27/React官方文档翻译（四）-渲染元素/" data-toggle="tooltip" data-placement="top"
+                           title="React官方文档翻译（四） - 渲染元素">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#组件（Components）和属性（Props）"><span class="toc-text">组件（Components）和属性（Props）</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="http://www.jianshu.com/u/ee0520f2d909">我的简书</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/hanqiao8866">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 寒桥 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://hanqiao8866.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','undefined','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://upload.jianshu.io/users/upload_avatars/143920/c55a48a925fd.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/300">
+</body>
+
+</html>

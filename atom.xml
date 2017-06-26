@@ -4,7 +4,7 @@
   <subtitle><![CDATA[iOS工程师、前端工程师]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://hanqiao8866.github.io/"/>
-  <updated>2017-06-25T19:04:08.000Z</updated>
+  <updated>2017-06-26T16:53:52.000Z</updated>
   <id>http://hanqiao8866.github.io/</id>
   
   <author>
@@ -15,11 +15,117 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[React官方文档翻译 - JSX简介]]></title>
-    <link href="http://hanqiao8866.github.io/2017/06/26/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91-JSX%E7%AE%80%E4%BB%8B/"/>
-    <id>http://hanqiao8866.github.io/2017/06/26/React官方文档翻译-JSX简介/</id>
+    <title><![CDATA[React官方文档翻译（五） - 组件和属性]]></title>
+    <link href="http://hanqiao8866.github.io/2017/06/27/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%EF%BC%88%E4%BA%94%EF%BC%89-%E7%BB%84%E4%BB%B6%E5%92%8C%E5%B1%9E%E6%80%A7/"/>
+    <id>http://hanqiao8866.github.io/2017/06/27/React官方文档翻译（五）-组件和属性/</id>
+    <published>2017-06-26T16:52:53.000Z</published>
+    <updated>2017-06-26T16:53:52.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="组件（Components）和属性（Props）"><a href="#组件（Components）和属性（Props）" class="headerlink" title="组件（Components）和属性（Props）"></a>组件（Components）和属性（Props）</h4><p>组件使你可以将 UI 划分为一个一个独立，可复用的小部件，并可以对每个部件进行单独的(isolation)设计。</p>
+<p>从定义上来说， 组件就像JavaScript的函数。组件可以接收任意(arbitrary)输入(称为”props”)， 并返回 React 元素，用以描述屏幕显示内容。</p>
+<p><strong>函数式组件和类组件</strong><br>最简单的定义组件的方法是写一个 JavaScript 函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Welcome(props) &#123;</div><div class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个函数是一个合法的 React 组件，因为它接收一个 props 参数, 并返回一个 React 元素。 我们把此类组件称为”函数式(Functional)”组件， 因为从字面上看来它就是一个 JavaScript 函数。</p>
+<p>你也可以用一个 ES6 的 class 来定义一个组件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Welcome extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面两个组件从 React 的角度来看是等效的。</p>
+<p>类组件有一些额外的特性，我们将在下一节讨论。在此之前, 我们先用函数式组件，因为它们更加简洁。</p>
+<p><strong>渲染一个组件</strong></p>
+<p>之前, 我们只遇到（encountered）代表 DOM 标签的 React 元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;div /&gt;;</div></pre></td></tr></table></figure>
+<p>然而，元素也可以使用自定义的组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</div></pre></td></tr></table></figure>
+<p>当 React 在自定义组件时，它将 JSX 属性以一个单独对象的形式传递给相应的组件。 我们将其称为 “props” 对象。</p>
+<p>比如, 以下代码在页面上渲染 “Hello, Sara” ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Welcome(props) &#123;</div><div class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;</div><div class="line">ReactDOM.render(</div><div class="line">  element,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>我们简要（recap）重述一下上边的例子：</p>
+<ul>
+<li>我们调用了 ReactDOM.render() 方法并向其中传入了 <welcome name="Sara"> 元素。</welcome></li>
+<li>React 调用 Welcome 组件，并向其中传入了 {name: ‘Sara’} 作为 props 对象。</li>
+<li>Welcome 组件返回 <code>&lt;h1&gt;Hello, Sara&lt;/h1&gt;</code>。</li>
+<li>React DOM 迅速更新 DOM ，使其显示为 <code>&lt;h1&gt;Hello, Sara&lt;/h1&gt;</code>。</li>
+</ul>
+<blockquote>
+<p>警告：（Caveat）<br> 组件名称总是以大写字母开始。举例来说, <code>&lt;div /&gt;</code> 代表一个 DOM 标签，而 <code>&lt;Welcome /&gt;</code> 则代表一个组件。</p>
+</blockquote>
+<p><strong>构成组件</strong><br>组件可以在它们的输出中引用其它组件。这使得我们可以使用同样的组件来抽象到任意层级。一个按钮，一个表单，一个对话框，一个屏幕：在 React 应用中，所有这些都通常描述为组件。</p>
+<p>例如，我们可以创建一个 App 组件，并在其内部多次渲染 Welcome：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function Welcome(props) &#123;</div><div class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function App() &#123;</div><div class="line">  return (</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;Welcome name=&quot;Sara&quot; /&gt;</div><div class="line">      &lt;Welcome name=&quot;Cahal&quot; /&gt;</div><div class="line">      &lt;Welcome name=&quot;Edite&quot; /&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;App /&gt;,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>通常，新的 React apps 都有一个单独的顶层 App 组件。然而，如果你在已有的应用中整合 React，你可以需要由下至上地, 从类似于 Button 这样的小组件开始, 逐渐整合到视图层的顶层。</p>
+<blockquote>
+<p>注意<br> 组件必须返回一个单独的根元素。这就是为什么我们添加一个 <code>&lt;div&gt;</code>来包含所有 <code>&lt;Welcome /&gt;</code> 元素的原因。</p>
+</blockquote>
+<p><strong>提取组件（Extracting components）</strong><br>不要害怕把一个组件分为多个更小的组件。<br>举个例子，看一下这个名 Comment 的组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function Comment(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div className=&quot;Comment&quot;&gt;</div><div class="line">      &lt;div className=&quot;UserInfo&quot;&gt;</div><div class="line">        &lt;img className=&quot;Avatar&quot;</div><div class="line">          src=&#123;props.author.avatarUrl&#125;</div><div class="line">          alt=&#123;props.author.name&#125;</div><div class="line">        /&gt;</div><div class="line">        &lt;div className=&quot;UserInfo-name&quot;&gt;</div><div class="line">          &#123;props.author.name&#125;</div><div class="line">        &lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</div><div class="line">        &#123;props.text&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</div><div class="line">        &#123;formatDate(props.date)&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>它接受 author（一个对象），text（一个字符串）和 date（一个日期）作为 props，并用于在某社交网站中描述一条评论。</p>
+<p>这个组件修改起来很麻烦，因为它是被嵌套的，而且很难复用其中的某个部分。让我们从其中提取一些组件。</p>
+<p>首先，提取头像 Avatar：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Avatar(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;img className=&quot;Avatar&quot;</div><div class="line">      src=&#123;props.user.avatarUrl&#125;</div><div class="line">      alt=&#123;props.user.name&#125;</div><div class="line">    /&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Avatar 组件不用关心它在 Comment 中是如何渲染的。这就是为什么我们给它的属性 prop 一个更通用的名字: user, 而不是 author 的原因。</p>
+<p>我们建议从组件本身的角度来命名 props 而不是它被使用的上下文环境。</p>
+<p>我们可以稍微简化一下 Comment 组件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function Comment(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div className=&quot;Comment&quot;&gt;</div><div class="line">      &lt;div className=&quot;UserInfo&quot;&gt;</div><div class="line">        &lt;Avatar user=&#123;props.author&#125; /&gt;</div><div class="line">        &lt;div className=&quot;UserInfo-name&quot;&gt;</div><div class="line">          &#123;props.author.name&#125;</div><div class="line">        &lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</div><div class="line">        &#123;props.text&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</div><div class="line">        &#123;formatDate(props.date)&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来，我们提取用户信息 UserInfo 组件， 用于将 Avatar 显示在用户名旁边：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function UserInfo(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div className=&quot;UserInfo&quot;&gt;</div><div class="line">      &lt;Avatar user=&#123;props.user&#125; /&gt;</div><div class="line">      &lt;div className=&quot;UserInfo-name&quot;&gt;</div><div class="line">        &#123;props.user.name&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这使我们可以进一步简化 Comment 组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Comment(props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div className=&quot;Comment&quot;&gt;</div><div class="line">      &lt;UserInfo user=&#123;props.author&#125; /&gt;</div><div class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</div><div class="line">        &#123;props.text&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</div><div class="line">        &#123;formatDate(props.date)&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>提取组件可能看起来是一个繁琐的工作，但是在大型的 Apps 中可以回报给我们的是大量的可复用组件。一个好的经验准则是如果你 UI 的一部分需要用多次 (Button，Panel，Avatar)，或者本身足够复杂(App，FeedStory，Comment)，最好的做法是使其成为可复用组件。</p>
+<p><strong>Props是只读的</strong></p>
+<p>无论你用函数或类的方法来声明组件, 它都无法修改其自身 props. 思考下列 sum (求和)函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function sum(a, b) &#123;</div><div class="line">  return a + b;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line">这种函数称为 “纯函数” ，因为它们不会试图改变它们的输入，并且对于同样的输入,始终可以得到相同的结果。</div><div class="line"></div><div class="line">反之， 以下是非纯函数， 因为它改变了自身的输入值：</div></pre></td></tr></table></figure>
+<p>function withdraw(account, amount) {<br>  account.total -= amount;<br>}<br>```<br>虽然 React 很灵活，但是它有一条严格的规则：</p>
+<p><strong>所有 React 组件都必须是纯函数，并禁止修改其自身 props 。</strong></p>
+<p>当然， 应用 UI 总是动态的，并且随时有可以改变。 所以在下一节, 我们会介绍一个新的概念 state(状态) 。state 允许 React 组件在不违反上述规则的情况下, 根据用户操作, 网络响应, 或者其他随便什么东西, 来动态地改变其输出。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="组件（Components）和属性（Props）"><a href="#组件（Components）和属性（Props）" class="headerlink" title="组件（Components）和属性（Props）"></a>组件（Components）]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[React官方文档翻译（四） - 渲染元素]]></title>
+    <link href="http://hanqiao8866.github.io/2017/06/27/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%EF%BC%88%E5%9B%9B%EF%BC%89-%E6%B8%B2%E6%9F%93%E5%85%83%E7%B4%A0/"/>
+    <id>http://hanqiao8866.github.io/2017/06/27/React官方文档翻译（四）-渲染元素/</id>
+    <published>2017-06-26T16:52:36.000Z</published>
+    <updated>2017-06-26T16:53:23.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="渲染元素（Rendering-Elements）"><a href="#渲染元素（Rendering-Elements）" class="headerlink" title="渲染元素（Rendering Elements）"></a>渲染元素（Rendering Elements）</h4><p>元素是React应用中最小的构建块<br>一个元素用于描述你将在屏幕中看到的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</div></pre></td></tr></table></figure>
+<p>不同于浏览器的 DOM 元素， React 元素是普通的对象，非常容易创建。React DOM 会负责更新 DOM ，以匹配React元素（注：DOM元素与React元素保持一致）。</p>
+<blockquote>
+<p>注意：组件是由元素构成的</p>
+</blockquote>
+<p><strong>在DOM中渲染一个元素</strong><br>假如在HTML代码中有一个<div>标签</div></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>我们称这个是一个 “根” DOM 节点，因为该节点内的所有内容都由 React DOM 管理。</p>
+<p>单纯用 React 构建的应用程序通常只有一个单独的 根 DOM 节点。但如果你要把 React 整合(integrating)进现有的app中 ，那你可能会有多个相互独立(isolated)的根DOM节点。</p>
+<p>要渲染一个 React 元素到一个 根 DOM 节点，把它们传递给 ReactDOM.render() 方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</div><div class="line">ReactDOM.render(</div><div class="line">  element,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>在页面上将会显示“Hello World”</p>
+<p><strong>更新已渲染的元素</strong><br>React元素是 不可变（immutable） 的. 一旦你创建了一个元素, 就不能再修改其子元素或任何属性。一个元素就像电影里的一帧: 它表示在某一特定时间点的 UI 。</p>
+<p>就我们所知, 更新 UI 的唯一方法是创建一个新的元素, 并将其传入ReactDOM.render()方法.</p>
+<p>思考一下时钟例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function tick() &#123;</div><div class="line">  const element = (</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;h1&gt;Hello, world!&lt;/h1&gt;</div><div class="line">      &lt;h2&gt;It is &#123;new Date().toLocaleTimeString()&#125;.&lt;/h2&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">  ReactDOM.render(</div><div class="line">    element,</div><div class="line">    document.getElementById(&apos;root&apos;)</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">setInterval(tick, 1000);</div></pre></td></tr></table></figure>
+<p>以上代码每隔 1 秒, 就会通过 setInterval() 回调 ReactDOM.render() 方法来重新渲染元素。</p>
+<blockquote>
+<p>注意：<br>实际上，大多数 React 应用只会调用 ReactDOM.render() 一次。在接下来的章节中，我们将学习如何将这些代码封装到<a href="https://facebook.github.io/react/docs/state-and-lifecycle.html" target="_blank" rel="external">有状态的组件中</a>。</p>
+</blockquote>
+<p><strong>React只更新需要更新的部分</strong><br>React DOM 会将元素及其子元素与之前版本逐一对比, 并只对有必要更新的 DOM 进行更新, 以达到 DOM 所需的状态。</p>
+<p>你可以用浏览器工具对 上一个例子 进行检查来验证这一点:<img src="http://www.css88.com/react/img/docs/granular-dom-updates.gif" alt=""></p>
+<p>即使我们我们每隔 1 秒都重建了整个UI树, 但实际上 React DOM 只更新了修改过的文本节点.</p>
+<p>在我们的经验中, 关注每个时间点UI的表现, 而不是关注随着时间不断更新UI的状态, 可以减少(eliminates)很多奇怪的 bug 。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="渲染元素（Rendering-Elements）"><a href="#渲染元素（Rendering-Elements）" class="headerlink" title="渲染元素（Rendering Elements）"></a>渲染元素（Rendering]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[React官方文档翻译（三） - JSX简介]]></title>
+    <link href="http://hanqiao8866.github.io/2017/06/26/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%EF%BC%88%E4%B8%89%EF%BC%89-JSX%E7%AE%80%E4%BB%8B/"/>
+    <id>http://hanqiao8866.github.io/2017/06/26/React官方文档翻译（三）-JSX简介/</id>
     <published>2017-06-25T19:03:01.000Z</published>
-    <updated>2017-06-25T19:04:08.000Z</updated>
+    <updated>2017-06-26T16:51:31.000Z</updated>
     <content type="html"><![CDATA[<h4 id="JSX简介"><a href="#JSX简介" class="headerlink" title="JSX简介"></a>JSX简介</h4><p>下面是一个变量声明：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;</div></pre></td></tr></table></figure>
 <p>这个标记语法（tag syntax）既不是字符串也不是HTML。</p>
@@ -72,11 +178,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[React官方文档翻译 - Hello World]]></title>
-    <link href="http://hanqiao8866.github.io/2017/06/26/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91-Hello-World/"/>
-    <id>http://hanqiao8866.github.io/2017/06/26/React官方文档翻译-Hello-World/</id>
+    <title><![CDATA[React官方文档翻译（二） - Hello World]]></title>
+    <link href="http://hanqiao8866.github.io/2017/06/26/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%EF%BC%88%E4%BA%8C%EF%BC%89-Hello-World/"/>
+    <id>http://hanqiao8866.github.io/2017/06/26/React官方文档翻译（二）-Hello-World/</id>
     <published>2017-06-25T19:02:49.000Z</published>
-    <updated>2017-06-25T19:03:51.000Z</updated>
+    <updated>2017-06-26T16:51:01.000Z</updated>
     <content type="html"><![CDATA[<h4 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h4><p>最简单的开始使用React是在CodePen中使用<a href="http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010" target="_blank" rel="external">Hello World示例代码</a>。你不需要安装任何东西，只需要打开连接进入一个面板中想示例代码中写的那样改写就行。如果你更愿意使用本地开发环境进行编写，可以查看一下<a href="http://javacheng.oschina.io/react/docs/installation.html" target="_blank" rel="external">安装</a>章节的介绍。</p>
 <p>最简单的React代码就像这样子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">  &lt;h1&gt;Hello, world!&lt;/h1&gt;,</div><div class="line">  document.getElementById(&apos;root&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
@@ -93,11 +199,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[React官方文档翻译 - 安装]]></title>
-    <link href="http://hanqiao8866.github.io/2017/06/26/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91-%E5%AE%89%E8%A3%85/"/>
-    <id>http://hanqiao8866.github.io/2017/06/26/React官方文档翻译-安装/</id>
+    <title><![CDATA[React官方文档翻译（一） - 安装]]></title>
+    <link href="http://hanqiao8866.github.io/2017/06/26/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85/"/>
+    <id>http://hanqiao8866.github.io/2017/06/26/React官方文档翻译（一）-安装/</id>
     <published>2017-06-25T19:02:34.000Z</published>
-    <updated>2017-06-25T19:03:28.000Z</updated>
+    <updated>2017-06-26T16:50:33.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>React使用起来很灵活并且可以用在各种项目中。你可以用React创建一个新的应用，你也可以将它引入到一个已经存在的项目中并且不用改写之前的代码库</p>
 <ul>
 <li>尝试React</li>
